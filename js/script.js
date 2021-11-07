@@ -24,4 +24,7 @@ const movieDB = {
     ]
 };
 
+<<<<<<< HEAD
 //1
+=======
+>>>>>>> origin/main
