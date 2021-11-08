@@ -24,5 +24,40 @@ const movieDB = {
     ]
 };
 
+//удаление рекламы
+const adds = document.querySelectorAll('.promo__adv img'),
+      poster = document.querySelector('.promo__bg'),
+      titles = document.querySelector('.promo__interactive-list'),
+      genre = poster.querySelector('.promo__genre');
 
-//3
+// adds.remove(); //так не сработает, потому что в adds лежит коллекция
+adds.forEach(item => {
+    item.remove();
+});
+
+// изменение жанра
+genre.textContent = "ДРАМА";
+// genre.innerHTML = "<h3>ДРАМА</h3>"; // текст другого размера
+
+// изменение фона
+poster.style.backgroundImage = "url('img/bg.jpg')";
+
+titles.innerHTML = "";
+
+// сортировка массива movieDB
+movieDB.movies.sort();
+
+
+
+// пуш массива на HTML
+// for (let i = 0; i < movieDB.movies.length; i++) {
+//     titles[i].textContent = sortMovies [i];
+// }
+
+movieDB.movies.forEach((film, i) => {
+    titles.innerHTML += `
+        <li class="promo__interactive-item">${i+1}. ${film}
+            <div class="delete"></div>
+        </li>
+    `;
+});
